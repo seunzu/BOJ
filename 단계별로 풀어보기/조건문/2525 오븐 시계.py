@@ -1,11 +1,13 @@
-a, b = map(int, input().split())
-c = int(input())
+h, m = map(int, input().split())
+t = int(input())
 
-if b + c >= 60:
-    b = b + c - 60
-    a = a + 1
-    print(a, b)
+h += t // 60 # 몫
+m += t % 60 # 나머지
 
-else:
-    b = b + c
-    print(a, b)
+if m >= 60:
+    h += 1
+    m -= 60
+if h >= 24:
+    h -= 24
+
+print(h, m)
