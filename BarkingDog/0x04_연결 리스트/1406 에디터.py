@@ -1,18 +1,17 @@
 import sys
-text = list(input())
-M = int(input())
-curser = []
 
-for _ in range(M):
+left = list(input())
+right = []
+
+for _ in range(int(input())):
     command = sys.stdin.readline().split()
-    if command[0] == "L" and text:
-        curser.append(text.pop())
-    elif command[0] == "D" and curser:
-        text.append(curser.pop())
-    elif command[0] == "B" and text:
-        text.pop()
+    if command[0] == 'L' and left:
+        right.append(left.pop())
+    elif command[0] == 'D' and right:
+        left.append(right.pop())
+    elif command[0] == 'B' and left:
+        left.pop()
     elif command[0] == 'P':
-        text.append(command[1])
+        left.append(command[1])
 
-answer = text + curser[::-1]
-print(''.join(answer))
+print(''.join(left + right[::-1]))
