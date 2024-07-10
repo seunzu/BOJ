@@ -1,16 +1,14 @@
-A, B = [], []
+n, m = map(int, input().split())
+a, b = [], []
 
-N, M = map(int, input().split())
+for i in range(n):
+    a.append(list(map(int, input().split())))
 
-for row in range(N):
-    row = list(map(int, input().split()))
-    A.append(row)
+for i in range(n):
+    b.append(list(map(int, input().split())))
 
-for row in range(N):
-    row = list(map(int, input().split()))
-    B.append(row)
-
-for row in range(N):
-    for col in range(M):
-        print(A[row][col] + B[row][col], end=' ')
-    print()
+for i in range(n):
+    c = []
+    for j in range(m):
+        c.append(a[i][j] + b[i][j])
+    print(*c)
