@@ -1,21 +1,13 @@
-from collections import deque
-
 n = int(input())
-standing = deque(map(int, input().split()))
-stack = []
+students = list(map(int, input().split()))
+tmp = []
 target = 1
 
-while standing:
-    if standing[0] == target:
-        standing.popleft()
+for i in students:
+    tmp.append(i)
+    # 스택 비어 있지 x, 스택의 마지막 학생 번호 == 현재 기대 번호
+    while tmp and tmp[-1] == target:
+        tmp.pop()
         target += 1
-    else:
-        stack.append(standing.popleft())
-    while stack:
-        if stack[-1] == target:
-            stack.pop()
-            target += 1
-        else:
-            break
-
-print('Nice' if not stack else 'No')
+    
+print("Sad" if tmp else "Nice")
