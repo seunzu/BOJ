@@ -1,8 +1,8 @@
 s = list(input())
-a = [0 for _ in range(26)]
+alphabet = [0 for _ in range(26)]
 
 for i in s:
-    a[ord(i) - 97] += 1
-
-for i in a:
-    print(i, end=' ')
+    # ord('a') = 97
+    alphabet[ord(i) - 97] += 1
+    
+print(*alphabet)        
