@@ -1,20 +1,22 @@
+import sys
+
+input = sys.stdin.readline
 n = int(input())
 
 for _ in range(n):
     data = input()
     left = []
     right = []
-    for j in data:
-        if j == "<":
-            if left:
-                right.append(left.pop())
-        elif j == ">":
-            if right:
-                left.append(right.pop())
-        elif j == "-":
-            if left:
-                left.pop()
+
+    for i in data:
+        if i == "<" and left:
+            right.append(left.pop())
+        elif i == ">" and right:
+            left.append(right.pop())
+        elif i == "-" and left:
+            left.pop()
         else:
-            left.append(j)
+            left.append(i)
+
     left.extend(reversed(right))
     print("".join(left))
