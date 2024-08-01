@@ -1,23 +1,25 @@
 import sys
 
-n = int(sys.stdin.readline())
-sequence = [int(sys.stdin.readline()) for _ in range(n)]
-
+input = sys.stdin.readline
+n = int(input())
 stack = []
-sb = []
-current_num = 1
+answer = []
+cur = 1
 
-for num in sequence:
-    while current_num <= num:
-        stack.append(current_num)
-        sb.append("+\n")
-        current_num += 1
-
-    if stack and stack[-1] == num:
+for _ in range(n):
+    num = int(input())
+    
+    while cur <= num:
+        stack.append(cur)
+        answer.append("+")
+        cur += 1
+    if stack[-1] == num:
         stack.pop()
-        sb.append("-\n")
+        answer.append("-")
     else:
         print("NO")
-        sys.exit()
+        break
 
-print("".join(sb))
+else:
+    for i in answer:
+        print(i)
