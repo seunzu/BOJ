@@ -8,10 +8,14 @@ dq = deque()
 for _ in range(n):
     command = input().split()
     
-    if command[0] == 'push':
+    if command[0] == 'push_front':
+        dq.appendleft(command[1])
+    elif command[0] == 'push_back':
         dq.append(command[1])
-    elif command[0] == 'pop':
+    elif command[0] == 'pop_front':
         print(-1 if not dq else dq.popleft())
+    elif command[0] == 'pop_back':
+        print(-1 if not dq else dq.pop())
     elif command[0] == 'size':
         print(len(dq))
     elif command[0] == 'empty':
